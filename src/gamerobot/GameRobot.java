@@ -77,6 +77,7 @@ public class GameRobot {
 //        System.out.println("请输入密码");
 //        String password = scanner.next();
         //机器人初始化
+        System.out.println("this is a test");
         bot = BotFactoryJvm.newBot(501864196, "fuck:19980504", new BotConfiguration() {
             {
                 setDeviceInfo(context -> SystemDeviceInfoKt.loadAsDeviceInfo(new File("deviceInfo.json"), context));
