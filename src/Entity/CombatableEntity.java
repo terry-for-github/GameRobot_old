@@ -14,17 +14,18 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
+//可战斗的实体
 public abstract class CombatableEntity extends Entity implements Cloneable, AttackSingle, Equipable{
 
-    private long ATK;
-    private long DEF;
-    private long MATK;
-    private long MDEF;
-    private double ASPD;
-    private double DSPD;
-    private long strength;
-    private long agile;
-    private long wisdom;
+    private long ATK;//攻击力
+    private long DEF;//防御力
+    private long MATK;//法术强度
+    private long MDEF;//魔法抗性
+    private double ASPD;//攻击速度
+    private double DSPD;//施法速度
+    private long strength;//力量
+    private long agile;//敏捷
+    private long wisdom;//智力
 
 
     public CombatableEntity(String name) {
