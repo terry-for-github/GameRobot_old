@@ -55,7 +55,7 @@ import java.util.logging.Logger;
 public class Initization {
 
     static Timer timer = new Timer();
-    static Timer time= new Timer();
+    static Timer time = new Timer();
     static PermissionManager permissionmanager = new PermissionManager();
 
     public static void Initization() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, IllegalArgumentException, IllegalArgumentException, Exception {
@@ -169,7 +169,7 @@ public class Initization {
             JSONObject jobj = JSON.parseObject(message);
             GameRobot.time = jobj.getLongValue("Time");
         }
-                                                                                                                                                                                                                                                                    
+
         time.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -321,8 +321,14 @@ public class Initization {
                 HashMap<String, Player> theplayers = new HashMap();
                 theplayers.putAll(GameRobot.players);
                 for (Map.Entry<String, Player> entry : theplayers.entrySet()) {
-                    Player player = ((Player) entry.getValue()).clone();
-                    PlayerManager.SavePlayerToFile(Long.valueOf(player.getName()), player);
+                    Player player;
+                    try {
+                        player = ((Player) entry.getValue()).clone();
+                        PlayerManager.SavePlayerToFile(Long.valueOf(player.getName()), player);
+                    } catch (CloneNotSupportedException ex) {
+                        Logger.getLogger(Initization.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                 }
                 System.out.print("===========正在保存权限与权限组=========\n");
                 File Permission = new File(ReturnPath() + "/Main/Permission");
@@ -340,12 +346,12 @@ public class Initization {
 
                 System.out.print("===========保存权限与权限组完毕=========\n");
 
-                System.out.print("===========����������������=========\n");
+                System.out.print("===========����������=========\n");
                 System.out.print("===========����������=========\n");
 
-                System.out.print("===========��������������=========\n");
+                System.out.print("===========����������=========\n");
 
-                System.out.print("===========��������=========\n");
+                System.out.print("===========��������   =========\n");
 
                 File Plugins = new File(ReturnPath() + "/Plugins");
                 File[] pluginsfs = Plugins.listFiles();	//遍历path下的文件和目录，放在File数组中

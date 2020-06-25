@@ -9,6 +9,7 @@ package Goods;
  *
  * @author Administrator
  */
+//消耗品
 public class Consumables extends Good implements Cloneable {
 
     public Consumables(String name, String use) {

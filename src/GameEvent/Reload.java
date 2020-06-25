@@ -18,6 +18,9 @@ import net.mamoe.mirai.contact.Group;
  *
  * @author Administrator
  */
+
+//重载事件
+
 public class Reload extends GameEvent
 {
     

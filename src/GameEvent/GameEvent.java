@@ -15,30 +15,34 @@ import java.util.Map;
  *
  * @author Administrator
  */
+//事件
 public abstract class GameEvent {
 
-    private String message;
-    private boolean isopen = true;
-    private boolean open = true;
-    private Map<Long, Boolean> permissions = new HashMap();
+    private String message;//事件触发关键字
+    private boolean isopen = true;//是否开启
+    private boolean open = true;//是否所有人都能用
+    private Map<Long, Boolean> permissions = new HashMap();//权限  对应的Long是玩家的QQ号
 
     public GameEvent(String message) {
         this.message = message;
         GameRobot.gameevents.put(message, this);
     }
-
+    
+    //添加此事件权限
     public void AddPermission(Player player) {
         if (!permissions.containsKey(Long.valueOf(player.getName()))) {
             getPermissions().put(Long.valueOf(player.getName()), Boolean.TRUE);
         }
     }
-
+    
+    //移除此事件权限
     public void RemvoePermission(Player player) {
         if (getPermissions().containsKey(Long.valueOf(player.getName()))) {
             getPermissions().put(Long.valueOf(player.getName()), Boolean.FALSE);
         }
     }
-
+    
+    //五种触发方式（可适当更改）
     public void Do(Player player) {
 
     }

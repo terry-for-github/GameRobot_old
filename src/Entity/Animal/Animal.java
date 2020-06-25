@@ -20,9 +20,10 @@ import java.util.UUID;
  *
  * @author Administrator
  */
+//动物实体类
 public class Animal extends SlaughterableEntity implements Growable, Harvestable, Hungerable, Cloneable {
 
-    private Map<String, Integer> forage = new HashMap<>();
+    private Map<String, Integer> forage = new HashMap<>();//饲料
 
     public Animal(String name, long MAXHP, int times, int maxage) {
         super(name, MAXHP, times, maxage);

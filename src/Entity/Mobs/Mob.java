@@ -20,12 +20,13 @@ import java.util.UUID;
  *
  * @author Administrator
  */
+//怪物类
 public class Mob extends CombatableEntity implements Cloneable, AttackSingle, BuffAddable, Equipable {
 
-    private Map<String, Good> Equip;
-    private Map<String, Good> goods;
-    private long money;
-    private long exp;
+    private Map<String, Good> Equip;//怪物装备
+    private Map<String, Good> goods;//怪物掉落物(请提前设置好数量)
+    private long money;//怪物掉落金币数量
+    private long exp;//击杀之后获取经验值
 
     public Mob(String name, long ATK, long DEF, long MATK, long MDEF, long strength, long agile, long wisdom, double ASPD, double DSPD) {
         super(name);

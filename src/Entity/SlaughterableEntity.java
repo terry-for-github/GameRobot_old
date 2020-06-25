@@ -16,12 +16,13 @@ import java.util.HashMap;
  *
  * @author Administrator
  */
+//可被收获的实体
 public abstract class SlaughterableEntity extends Entity {
 
-    private HashMap<String, Integer> good = new HashMap<>();
-    private int times;
-    private long age;
-    private long maxage;
+    private HashMap<String, Integer> good = new HashMap<>();//收获获得的物品与数量
+    private int times;//可被收获的次数
+    private long age;//当前成长度
+    private long maxage;//最大成长度
 
     public SlaughterableEntity(String name, long MAXHP, int times, long maxage) {
         super(name, MAXHP);

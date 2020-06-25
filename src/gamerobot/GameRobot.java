@@ -27,7 +27,6 @@ import java.util.logging.Logger;
 import Permission.PermissionGroup;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactoryJvm;
-import net.mamoe.mirai.contact.Group;
 import net.mamoe.mirai.japt.Events;
 import net.mamoe.mirai.message.FriendMessage;
 import net.mamoe.mirai.message.GroupMessage;
@@ -77,7 +76,9 @@ public class GameRobot {
 //        System.out.println("请输入密码");
 //        String password = scanner.next();
         //机器人初始化
-
+        
+        System.out.println("This is a test");
+        System.out.println("This is a test");
         bot = BotFactoryJvm.newBot(501864196, "fuck:19980504", new BotConfiguration() {
             {
                 setDeviceInfo(context -> SystemDeviceInfoKt.loadAsDeviceInfo(new File("deviceInfo.json"), context));

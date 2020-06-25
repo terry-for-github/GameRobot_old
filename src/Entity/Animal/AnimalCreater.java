@@ -21,7 +21,7 @@ import java.util.UUID;
  * @author Administrator
  */
 public class AnimalCreater {
-
+    //从文件获取动物
     public static Animal GetAnimalFromFile(String filepath) {
         String message = GsonUtil.readJsonFile(filepath);
         JSONObject jobj = JSON.parseObject(message);

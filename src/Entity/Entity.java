@@ -11,12 +11,13 @@ import java.util.UUID;
  *
  * @author Administrator
  */
+//实体
 public abstract class Entity {
 
-    private String name;
-    private long MAXHP;
-    private long HP;
-    private UUID uuid;
+    private String name;//名称
+    private long MAXHP;//最大血量
+    private long HP;//当前血量
+    private UUID uuid;//唯一标识符
 
     public Entity(String name, long MAXHP) {
         this.name = name;

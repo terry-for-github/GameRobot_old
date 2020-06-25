@@ -11,10 +11,10 @@ package Goods;
  */
 public abstract class Good implements Cloneable {
 
-    private int number;
-    private String type;
-    private String use;
-    private String name;
+    private int number;//数量
+    private String type;//种类
+    private String use;//用途（描述？）
+    private String name;//名称
 
     public Good(String name, String type, String use) {
         this.name = name;

@@ -23,7 +23,9 @@ import java.util.UUID;
  * @author Administrator
  */
 public class PlayerCreater {
-
+    
+    
+    //初始化时 从玩家文件获取玩家
     public static Player GetPlayerFromFile(String filepath) {
         String message = GsonUtil.readJsonFile(filepath);
         JSONObject jobj = JSON.parseObject(message);
@@ -72,7 +74,10 @@ public class PlayerCreater {
 
         return player;
     }
-
+    
+    
+    
+    //创建一个玩家
     public static boolean CreatePlayer(long id) throws IOException {
         File f = new File("");
         String cf = "";

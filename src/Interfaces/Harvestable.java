@@ -11,6 +11,8 @@ import Entity.Player.Player;
  *
  * @author Administrator
  */
+
+//可收获
 public interface Harvestable {
     public abstract void Harvest(Player player);
 }

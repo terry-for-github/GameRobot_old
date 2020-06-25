@@ -19,6 +19,8 @@ import java.util.UUID;
  *
  * @author Administrator
  */
+
+//植物
 public class Plant extends SlaughterableEntity implements Growable, Harvestable, Hungerable, Cloneable {
 
     public Plant(String name, long MAXHP, int times, int maxage) {

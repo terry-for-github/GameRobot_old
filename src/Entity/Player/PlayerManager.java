@@ -22,7 +22,9 @@ import java.util.logging.Logger;
  * @author Administrator
  */
 public class PlayerManager {
-
+    
+    
+    //是否存在这个玩家
     public static boolean ExistThisPlayer(Friend sender) {
         if (players.containsKey(String.valueOf(sender.getId()))) {
             return true;
@@ -30,7 +32,8 @@ public class PlayerManager {
             return false;
         }
     }
-
+    
+    
     public static boolean ExistThisPlayer(Member sender) {
         if (players.containsKey(String.valueOf(sender.getId()))) {
             return true;
@@ -39,58 +42,18 @@ public class PlayerManager {
         }
     }
 
-    public static void PlayerLevelUp(Player player) {
-        if (player.getExp() >= player.getMaxexp()) {
-            player.setLevel(player.getLevel() + 1);
-            player.setPoints(player.getPoints() + 5);
-            player.setExp(player.getExp() - player.getMaxexp());
-            player.setMaxexp((long) (player.getMaxexp() * 1.25));
-            if (player.getExp() >= player.getMaxexp()) {
-                player.setExp(player.getExp() - player.getMaxexp());
-                PlayerLevelUp(player);
-            }
-        }
-    }
-
+    
+    //玩家查看自身装备
     public static void PlayerSeeEquip(Player player) {
 
     }
-
+    
+    //玩家查看商店
     public void PlayerSeeStore() {
 
     }
 
-    public static void RevividPlayer(Player player) {
-
-        if (player.getHP() == 0) {
-            Date date = new Date();
-            date.setTime(date.getTime() + 600000);
-            player.SendMessageToPlayer("你正在复活中\n到" + date + "复活");
-            Timer timer = new Timer();
-//            timer.schedule(new TimerTask() {
-//                @Override
-//                public void run() {
-//                    player.setHealth(player.getMaxHealth());
-//                    
-//                    player.setLocation("家");
-//                    player.setDoing("无");
-//                    qq.sendMessage("======================\n你已经复活了\n======================");
-//                }
-//            }, 600000);
-//            Timer timer1 = new Timer();
-//            timer1.scheduleAtFixedRate(new TimerTask() {
-//                @Override
-//                public void run() {
-//                    if (player.getHealth() > 0) {
-//                        timer.cancel();
-//                        timer1.cancel();
-//                    }
-//                }
-//            }, 0, 100);
-
-        }
-    }
-
+    //将玩家保存到文件
     public static void SavePlayerToFile(long id, Player player) {
         Gson gson = new Gson();
         File f = new File("");

@@ -13,7 +13,6 @@ import static Utils.Initization.ReturnPath;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
-import gamerobot.GameRobot;
 import static gamerobot.GameRobot.goods;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +25,8 @@ import java.util.UUID;
  * @author Administrator
  */
 public class MobCreater {
-
+    
+    //从文件获取怪物
     public static Mob GetMobFromFile(String filepath) {
         String message = GsonUtil.readJsonFile(filepath);
         JSONObject jobj = JSON.parseObject(message);

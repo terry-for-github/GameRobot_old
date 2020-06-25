@@ -11,11 +11,12 @@ import java.util.UUID;
  *
  * @author Administrator
  */
+//装甲类
 public class Armor extends Good implements Cloneable {
 
-    private ArmorType armortype;
-    private UUID uuid;
-    private long ATK = 0;
+    private ArmorType armortype;//装甲种类
+    private UUID uuid;//唯一标识符
+    private long ATK = 0;//属性加成
     private long DEF = 0;
     private long MATK = 0;
     private long MDEF = 0;

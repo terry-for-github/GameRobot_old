@@ -23,7 +23,9 @@ import java.util.UUID;
  * @author Administrator
  */
 public class GoodCreater {
-
+    
+    
+    //从文件初始化物品
     public static Good GetGoodFromFile(String filepath) {
         String message = GsonUtil.readJsonFile(filepath);
         JSONObject jobj = JSON.parseObject(message);
@@ -55,6 +57,8 @@ public class GoodCreater {
         }
     }
 
+    
+    //从JSON获取物品
     public static Good GetGoodFromJsonObject(JSONObject jobj) {
         Consumables consumables = new Consumables("无", "无");
         Armor armor = new Armor("无", "无");
@@ -83,7 +87,8 @@ public class GoodCreater {
             return armor;
         }
     }
-
+    
+    //将文件获取的HASHMAP转换成物品的MAP
     public static Map<String, Good> StringToGoods(Map<String, String> goods) {
         Map map = new HashMap<>();
         for (Map.Entry<String, String> entry : goods.entrySet()) {
@@ -118,7 +123,9 @@ public class GoodCreater {
         }
         return map;
     }
-
+    
+    
+    
     public static void SaveArmorToFile(Armor armor) throws IOException {
         File Goods = new File(ReturnPath() + "/Main/Goods");
 
