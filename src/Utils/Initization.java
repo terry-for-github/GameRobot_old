@@ -30,7 +30,7 @@ import static Utils.GsonUtil.formatJson;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import gamerobot.GameRobot;
-import static gamerobot.GameRobot.gameevents;
+import static gamerobot.GameRobot.gameEvents;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -282,7 +282,7 @@ public class Initization {
 
         System.out.print("======================正在加载权限======================\n");
 
-        for (Map.Entry<String, GameEvent> entry : gameevents.entrySet()) {
+        for (Map.Entry<String, GameEvent> entry : gameEvents.entrySet()) {
             File thepermission = new File(Permission.getPath() + "/" + entry.getValue().getMessage() + ".json");
             System.out.print("正在加载  " + entry.getValue().getMessage() + "  权限\n");
             if (new File(Permission.getPath() + "/" + entry.getValue().getMessage()).exists()) {
@@ -332,7 +332,7 @@ public class Initization {
                 }
                 System.out.print("===========正在保存权限与权限组=========\n");
                 File Permission = new File(ReturnPath() + "/Main/Permission");
-                for (Map.Entry<String, GameEvent> entry : gameevents.entrySet()) {
+                for (Map.Entry<String, GameEvent> entry : gameEvents.entrySet()) {
                     File thepermission = new File(Permission.getPath() + "/" + entry.getValue().getMessage() + ".json");
                     System.out.print("正在保存" + entry.getValue().getMessage() + "  权限\n");
                     if (new File(Permission.getPath() + "/" + entry.getValue().getMessage() + ".json").exists()) {
