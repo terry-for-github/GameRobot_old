@@ -25,11 +25,17 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Permission.PermissionGroup;
+import static Utils.ImageUtils.CreateLine;
+import static Utils.ImageUtils.imageMargeTest;
+import static Utils.ImageUtils.overlyingImageTest;
+import java.io.FileNotFoundException;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactoryJvm;
+import net.mamoe.mirai.event.events.MessageSendEvent.TempMessageSendEvent;
 import net.mamoe.mirai.japt.Events;
 import net.mamoe.mirai.message.FriendMessage;
 import net.mamoe.mirai.message.GroupMessage;
+import net.mamoe.mirai.message.data.Image;
 import net.mamoe.mirai.utils.BotConfiguration;
 import net.mamoe.mirai.utils.SystemDeviceInfoKt;
 
@@ -68,6 +74,11 @@ public class GameRobot {
     public static Bot bot;
 
     public static void main(String[] args) throws InterruptedException, IOException, IllegalAccessException, IllegalArgumentException, IllegalArgumentException, InvocationTargetException, InvocationTargetException, NoSuchMethodException, NoSuchMethodException, InstantiationException, MalformedURLException, ClassNotFoundException, ClassNotFoundException, Exception {
+//
+//        // 测试图片的叠加
+//        overlyingImageTest();
+//        // 测试图片的垂直合并
+//        imageMargeTest();
 
         //用于作机器人的qq账户
 //        Scanner scanner = new Scanner(System.in);
@@ -76,9 +87,6 @@ public class GameRobot {
 //        System.out.println("请输入密码");
 //        String password = scanner.next();
         //机器人初始化
-        
-        System.out.println("This is a test");
-        System.out.println("This is a test");
         bot = BotFactoryJvm.newBot(501864196, "fuck:19980504", new BotConfiguration() {
             {
                 setDeviceInfo(context -> SystemDeviceInfoKt.loadAsDeviceInfo(new File("deviceInfo.json"), context));
@@ -91,9 +99,16 @@ public class GameRobot {
         //        机器人登录
         bot.login();
 
+        Events.subscribeAlways(FriendMessage.class,
+                (FriendMessage event)
+                -> {
+
+        });
+
         //私聊触发
         Events.subscribeAlways(FriendMessage.class,
                 (FriendMessage event) -> {
+
                     if (cando) {
                         if (gameevents.containsKey(event.getMessage().contentToString().split(" ")[0])) {
                             pool.submit(new Thread() {
@@ -123,11 +138,23 @@ public class GameRobot {
 
         //群组消息触发
         Events.subscribeAlways(GroupMessage.class, (GroupMessage event) -> {
+            if (event.getMessage().contentToString().equals("Test")) {
+                Image image;
+                try {
+                    System.out.println("Test");
+                    image = event.getGroup().uploadImage(CreateLine());
+                    event.getGroup().sendMessage(image);
+                } catch (FileNotFoundException ex) {
+
+                }
+
+            }
             if (gameevents.containsKey(event.getMessage().contentToString().split(" ")[0])) {
 
                 pool.submit(new Thread() {
                     @Override
                     public void run() {
+
                         if (!PlayerManager.ExistThisPlayer(event.getSender())) {
                             try {
                                 PlayerCreater.CreatePlayer(event.getSender().getId());
@@ -150,7 +177,7 @@ public class GameRobot {
                                 groupevent.Do(event.getGroup(), player);
                             } else {
                                 //是否拥有权限
-                               
+
                                 if (groupevent.getPermissions().containsKey(event.getSender().getId())) {
                                     groupevent.Do(event.getGroup());
                                     groupevent.Do(player);
