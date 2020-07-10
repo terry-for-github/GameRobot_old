@@ -5,6 +5,9 @@
  */
 package Goods;
 
+import Goods.Consumables.Consumables;
+import Goods.Armor.ArmorType;
+import Goods.Armor.Armor;
 import Utils.GsonUtil;
 import static Utils.GsonUtil.GetStringFromObject;
 import static Utils.Initization.ReturnPath;

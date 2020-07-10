@@ -5,17 +5,24 @@
  */
 package Map.ForestBoime;
 
-import Map.Block;
 import Map.Chunk;
+import Map.Location;
 
 /**
  *
  * @author Administrator
  */
+//森林区块
 public class ForestChunk extends Chunk {
 
-    public ForestChunk() {
+    public ForestChunk(Location location) {
+        super(location);
         this.setBoime("forest");
-        this.setBlockses(new Block[11][11]);
+    }
+    
+    @Override
+    public void setEntitys()
+    {
+        
     }
 }

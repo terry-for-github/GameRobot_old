@@ -13,6 +13,9 @@ import Entity.Player.PlayerCreater;
 import Entity.Player.PlayerManager;
 import GameEvent.GameEvent;
 import Goods.Good;
+import Map.Chunk;
+import Map.ForestBoime.ForestChunk;
+import Map.Location;
 import Utils.Initization;
 import java.io.File;
 import java.io.IOException;
@@ -68,6 +71,8 @@ public class GameRobot {
     //需要高并发的存取
     public static Map<String, Player> players = new ConcurrentHashMap<>();//所有玩家
 
+    public static Map<Location, Chunk> chuns = new ConcurrentHashMap<>();
+
     //线程池
     public static ExecutorService pool = Executors.newFixedThreadPool(200);
     public static ExecutorService executorService = Executors.newCachedThreadPool();
@@ -75,11 +80,11 @@ public class GameRobot {
 
     public static void main(String[] args) throws InterruptedException, IOException, IllegalAccessException, IllegalArgumentException, IllegalArgumentException, InvocationTargetException, InvocationTargetException, NoSuchMethodException, NoSuchMethodException, InstantiationException, MalformedURLException, ClassNotFoundException, ClassNotFoundException, Exception {
 //
+
 //        // 测试图片的叠加
 //        overlyingImageTest();
 //        // 测试图片的垂直合并
 //        imageMargeTest();
-
         //用于作机器人的qq账户
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("请输入账户");

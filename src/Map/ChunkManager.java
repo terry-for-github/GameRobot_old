@@ -3,18 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
-
-import Entity.CombatableEntity;
-import Goods.Armor.Armor;
+package Map;
 
 /**
  *
  * @author Administrator
  */
-
-//可装备
-public interface Equipable {
-
-    public void Equip(Armor armor);
+public class ChunkManager 
+{
+    
 }

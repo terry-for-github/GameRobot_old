@@ -5,7 +5,7 @@
  */
 package Entity;
 
-import Goods.Armor;
+import Goods.Armor.Armor;
 import Interfaces.AttackSingle;
 import Interfaces.Equipable;
 import java.util.ArrayList;

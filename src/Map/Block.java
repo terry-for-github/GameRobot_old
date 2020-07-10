@@ -5,50 +5,27 @@
  */
 package Map;
 
+import Entity.Entity;
+import Entity.Player.Player;
+
 /**
  *
  * @author Administrator
  */
-public abstract class Block {
-    private int x;
-    private int y;
-    private int chunkx;
-    private int chunky;
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getChunkx() {
-        return chunkx;
-    }
-
-    public void setChunkx(int chunkx) {
-        this.chunkx = chunkx;
-    }
-
-    public int getChunky() {
-        return chunky;
-    }
-
-    public void setChunky(int chunky) {
-        this.chunky = chunky;
-    }
-    public Block()
+//方块继承自实体 有HP HP为零时被破坏
+public abstract class Block extends Entity{
+    
+    public Block(String name,Long maxHP)
     {
-        
+        super(name,maxHP);
     }
+   
+   
+    //被破坏发生的事情
+    public abstract void breakBlock(Player player);
+    public abstract void breakBlock();
+    
+   
     
 }

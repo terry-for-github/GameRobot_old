@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Goods.EssGoods;
 
-import Entity.CombatableEntity;
-import Goods.Armor.Armor;
+import Goods.Good;
 
 /**
  *
  * @author Administrator
  */
-
-//可装备
-public interface Equipable {
-
-    public void Equip(Armor armor);
+public class Wood extends Good{
+    
+    public Wood(String name, String type, String use) {
+        super(name, type, use);
+    }
+    
 }

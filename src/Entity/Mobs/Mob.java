@@ -7,7 +7,7 @@ package Entity.Mobs;
 
 
 import Entity.CombatableEntity;
-import Goods.Armor;
+import Goods.Armor.Armor;
 import Goods.Good;
 import Interfaces.AttackSingle;
 import Interfaces.BuffAddable;

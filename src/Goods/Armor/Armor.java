@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Goods;
+package Goods.Armor;
 
+import Goods.Good;
 import java.util.UUID;
 
 /**

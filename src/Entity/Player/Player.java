@@ -6,7 +6,7 @@
 package Entity.Player;
 
 import Entity.CombatableEntity;
-import Goods.Armor;
+import Goods.Armor.Armor;
 import Goods.Good;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
